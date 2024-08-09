@@ -40,7 +40,7 @@ calcularValorTotal = function () {
             - Descuento esperado: 5.4
         Si el caso de prueba es exitoso, hacer un commit
      */
-        valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento);
+        valorDescuento=calcularValorDescuento(precioProducto*cantidad,porcentajeDescuento);
         mostrarTexto("lblDescuento",valorDescuento);
     
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
@@ -61,8 +61,9 @@ calcularValorTotal = function () {
 
             Si el caso de prueba es exitoso, hacer un commit
         */
-            valorIVA = calcularIVA(valorSubtotal - valorDescuento);
+            valorIVA = calcularIVA(valorSubtotal-valorDescuento);
             mostrarTexto("lblValorIVA", valorIVA);  
+
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
     //11. Mostrar el resultado en el componente lblTotal
     /*
@@ -86,12 +87,21 @@ calcularValorTotal = function () {
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
         Si funciona, hacer un commit
-    */
-
-
+    */ 
+    nombreProducto=recuperarTexto("txtProducto");
+    let resumen= ("Valor a pagar por "+cantidad+" "+nombreProducto+" con el "+porcentajeDescuento+"% de descuento:USD $ "+valorTotal)
+    mostrarTexto("lblResumen", resumen)
 }
 limpiar = function () {
-    
+    mostrarTextoEnCaja("txtProducto", "");
+    mostrarTextoEnCaja("txtCantidad", "0");
+    mostrarTextoEnCaja("txtPrecio", "0.0");
+    mostrarTextoEnCaja("txtPorcentajeDescuento", "0");
+
+    mostrarTexto("lblSubtotal", "0.0");
+    mostrarTexto("lblDescuento", "0.0");
+    mostrarTexto("lblValorIVA", "0.0");
+    mostrarTexto("lblTotal", "0.0");
 }
     /*
         Dejar todas las cajas de texto con el valor cadena vacía, 0 ó 0.0 según el tipo de dato

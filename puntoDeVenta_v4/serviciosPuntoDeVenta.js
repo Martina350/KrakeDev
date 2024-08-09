@@ -1,10 +1,9 @@
 calcularValorDescuento = function (monto, porcentajeDescuento) {
-    return (monto * porcentajeDescuento) / 100;
+    return monto * porcentajeDescuento / 100;
 }
 
 calcularIVA = function (monto) {
-    const tasaIVA = 12; // IVA del 12%
-    return (monto * tasaIVA) / 100;
+    return monto * 0.12;
 }
 
 calcularSubtotal = function (precio, cantidad) {
