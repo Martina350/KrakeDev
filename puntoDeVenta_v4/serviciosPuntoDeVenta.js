@@ -1,0 +1,16 @@
+calcularValorDescuento = function (monto, porcentajeDescuento) {
+    return (monto * porcentajeDescuento) / 100;
+}
+
+calcularIVA = function (monto) {
+    const tasaIVA = 12; // IVA del 12%
+    return (monto * tasaIVA) / 100;
+}
+
+calcularSubtotal = function (precio, cantidad) {
+    return precio * cantidad;
+}
+
+calcularTotal = function (subtotal, descuento, iva) {
+    return subtotal - descuento + iva;
+}
