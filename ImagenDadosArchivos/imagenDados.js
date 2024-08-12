@@ -7,22 +7,33 @@ jugar=function(){
     console.log(resultado);
     mostrarCara(resultado);
     modificarPuntos(resultado);
+    modificarLanzamientos();
 }
 
 modificarPuntos=function(numero){
     puntos=puntos+numero;
     cambiarTexto("lblPuntos",puntos);
     if(puntos>20){
-        cambiarTexto("lblWinner", "GANASTE!!")
+        cambiarTexto("lblWinner", "GANASTE!!");
+        limpiar();
     }
 }
 
 modificarLanzamientos=function(){
- 
+   if(lanzamientos>0){
+    lanzamientos-=1
+   }
+   cambiarTexto("lblLanzamientos",lanzamientos);
+   if (lanzamientos === 0){
+        cambiarTexto("lblLoser","GAME OVER!!");
+        limpiar();
+   }
 }
 
 limpiar=function(){
-
+    cambiarTexto('lblPuntos', "0");
+    cambiarTexto('lblLanzamientos', "5");
+    cambiarImagen('imgDado', " ");
 }
 
 mostrarCara=function(numero){
