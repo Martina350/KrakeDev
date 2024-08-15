@@ -5,9 +5,18 @@ calcularPromedioNotas=function(){
     let promedio = calcularPromedio(n1,n2,n3);
     cambiarTexto("resultadoPromedio", promedio);
 
-    if (promedio>7){
-        cambiarImagen("imgPromedio","./exito.gif")
+    if (promedio<5 && promedio>0){
+        cambiarImagen("imgPromedio","./fracaso.gif");
+        cambiarTexto("lblReprobado","REPROBADO");
+    }else if(promedio>=5 && promedio<=8){
+        cambiarImagen("imgPromedio","./exito.gif");
+        cambiarTexto("lblGoodJob","BUEN TRABAJO");
+    }else if(promedio>8 && promedio<=10){
+        cambiarImagen("imgPromedio","./excellent.gif")
+        cambiarTexto("lblExcellent","EXCELENTE!!!");
     }else{
-        cambiarImagen("imgPromedio","./fracaso.gif")
+        cambiarImagen("imgPromedio","./incorrecto.gif")
+        cambiarTexto("lblIncorrecto","DATOS INCORRECTOS");
     }
+
 }
