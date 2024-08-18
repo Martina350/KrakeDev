@@ -18,22 +18,22 @@
                 <div class="titulo">
                     PUNTO DE VENTA
                 </div>
-                
                 <div class="ingresoDatos">
                     <div class="tituloCaja">
                         PRODUCTO
                     </div>
                     <div>
                         <input type="text" class="cajaTexto" id="txtProducto"/>
+                        <div class="error" id="lblError1"></div>
                     </div>
                 </div>
-
                 <div class="ingresoDatos">
                     <div class="tituloCaja">
                         CANTIDAD
                     </div>
                     <div>
                         <input type="text" class="cajaTexto" id="txtCantidad"/>
+                        <div class="error" id="lblError2"></div>
                     </div>
                 </div>
                 <div class="ingresoDatos">
@@ -42,51 +42,37 @@
                     </div>
                     <div>
                         <input type="text" class="cajaTexto" id="txtPrecio"/>
+                        <div class="error" id="lblError3"></div>
                     </div>
                 </div>
                 <div class="botones">
                     <div class="contenedorBoton">
                         <input type="button" value="TOTAL"
-                        class="estiloBoton" onclick="calcularValorTotal()"/>
-                    </div>
-                    <div class="contenedorBoton">
+                        class="estiloBoton" onclick="calcularValorTotal();"/>
                         <input type="button" value="LIMPIAR" 
-                        class="estiloBoton" onclick="limpiar()"/>
+                        class="estiloBoton" onclick="limpiar();"/>
                     </div>
                 </div>
             </div>
             <div class="areaResultado">
                 <div class="resultado">
-                    <div>
-                        SUBTOTAL:
-                    </div>
-                    <div id="lblSubtotal">
-                        0.0
-                    </div>
-
-                    <div>
-                        DESCUENTO
-                    </div>
-                    <div id="lblDescuento">
-                        0.0
-                    </div>
-
-                    <div>
-                        IVA 12%
-                    </div>
-                    <div id="lblValorIVA">
-                        0.0
-                    </div>
-
-                    <div>
-                        TOTAL
-                    </div>
-                    <div id="lblTotal">
-                        0.0
-                    </div>
-                </div>    
-                    <div id="lblResumen"></div>
+                    <h3 class="name">SUBTOTAL: </h3>
+                    <h3 id="lblSubtotal" class="reult"> 0.0</h3>
+                </div>
+                <div class="resultado">
+                    <h3 class="name">DESCUENTO: </h3>
+                    <h3 id="lblDescuento" class="reult">0.0</h3>
+                </div>
+                <div class="resultado">
+                    <h3 class="name">IVA 12%: </h3>
+                    <h3 id="lblValorIVA" class="reult">0.0</h3>
+                </div>
+                <div class="resultado">
+                    <h3 class="name">TOTAL: </h3>
+                    <h3 id="lblTotal" class="reult">0.0</h3>
+                </div>
             </div>
+        </div>
         </div>
     </body>
 
