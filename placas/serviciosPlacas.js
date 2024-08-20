@@ -132,3 +132,36 @@ obtenerProvincia=function(placa){
         return nombreProvincia;
     }
 }
+
+obtenerTipoVehiculo=function(placa){
+    let segundaLetra=placa.charAt(1);
+    let tipoVehiculo;
+    let existeError=false;
+
+    if(segundaLetra=="A"){
+        tipoVehiculo= "VEHICULO COMERCIAL";
+    }else if(segundaLetra=="Z"){
+        tipoVehiculo= "VEHICULO COMERCIAL";
+    }else if(segundaLetra=="E"){
+        tipoVehiculo= "VEHICULO GUBERNAMENTAL";
+    }else if(segundaLetra=="X"){
+        tipoVehiculo= "VEHICULO DE USO OFICIAL";
+    }else if(segundaLetra=="S"){
+        tipoVehiculo= "VEHICULO DEL GOBIERNO PROVINCIAL";
+    }else if(segundaLetra=="M"){
+        tipoVehiculo= "VEHICULO MUNICIPAL";
+    }else if(segundaLetra>="A" && segundaLetra<="Z"){
+        tipoVehiculo= "VEHICULO PARTICULAR";
+    }else{
+        tipoVehiculo=null;
+        existeError=true;
+    }
+
+    if (existeError) {
+        mostrarTexto("lblVehiculo");
+        return null;
+    } else {
+        mostrarTexto("lblVehiculo",tipoVehiculo);
+        return tipoVehiculo;
+    }
+}
