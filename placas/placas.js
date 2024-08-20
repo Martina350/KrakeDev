@@ -7,4 +7,10 @@ validarPlaca=function(){
     }else{
         mostrarTexto("lblResultado","ESTRUCTURA INCORRECTA");
     }
+    let provincia=obtenerProvincia(placa);
+    if (provincia!==null) {
+        mostrarTexto("lblProvincia",provincia);
+    }else{
+        mostrarTexto("lblProvincia", "PROVINCIA INCORRECTA");
+    }
 }
