@@ -77,7 +77,7 @@ obtenerProvincia=function(placa){
     if (letra == 'A') {
     nombreProvincia = "AZUAY";
     } else if (letra == 'B') {
-    nombreProvincia = "BOLÍVAR";
+    nombreProvincia = "BOLIVAR";
     } else if (letra == 'U') {
     nombreProvincia = "CAÑAR";
     } else if (letra == 'C') {
@@ -91,7 +91,7 @@ obtenerProvincia=function(placa){
     } else if (letra == 'E') {
     nombreProvincia = "ESMERALDAS";
     } else if (letra == 'W') {
-    nombreProvincia = "GALÁPAGOS";
+    nombreProvincia = "GALAPAGOS";
     } else if (letra == 'G') {
     nombreProvincia = "GUAYAS";
     } else if (letra == 'I') {
@@ -99,9 +99,9 @@ obtenerProvincia=function(placa){
     } else if (letra == 'L') {
     nombreProvincia = "LOJA";
     } else if (letra == 'R') {
-    nombreProvincia = "LOS RÍOS";
+    nombreProvincia = "LOS RIOS";
     } else if (letra == 'M') {
-    nombreProvincia = "MANABÍ";
+    nombreProvincia = "MANABI";
     } else if (letra == 'V') {
     nombreProvincia = "MORONA SANTIAGO";
     } else if (letra == 'N') {
@@ -111,7 +111,7 @@ obtenerProvincia=function(placa){
     } else if (letra == 'P') {
     nombreProvincia = "PICHINCHA";
     } else if (letra == 'K') {
-    nombreProvincia = "SUCUMBÍOS";
+    nombreProvincia = "SUCUMBIOS";
     } else if (letra == 'Q') {
     nombreProvincia = "ORELLANA";
     } else if (letra == 'T') {
@@ -164,4 +164,25 @@ obtenerTipoVehiculo=function(placa){
         mostrarTexto("lblVehiculo",tipoVehiculo);
         return tipoVehiculo;
     }
+}
+
+obtenerDiaPicoYPlaca=function(placa){
+    let ultimaPosicion = placa.length - 1;
+    let digito = placa.charAt(ultimaPosicion);
+    let picoPlaca;
+
+    if (digito=='1' || digito=='2') {
+        mostrarTexto("lblPicoYPlaca", picoPlaca="LUNES")
+    } else if (digito=='3' || digito=='4') {
+        mostrarTexto("lblPicoYPlaca", picoPlaca="MARTES")
+    } else if (digito=='5' || digito=='6') {
+        mostrarTexto("lblPicoYPlaca", picoPlaca="MIERCOLES")
+    } else if (digito== '7' || digito=='8') {
+        mostrarTexto("lblPicoYPlaca", picoPlaca="JUEVES")
+    } else if (digito=='9' || digito=='0') {
+        mostrarTexto("lblPicoYPlaca", picoPlaca="VIERNES")
+    }else{
+        mostrarTexto("lblPicoYPlaca", picoPlaca=" ")
+    }
+    return picoPlaca;
 }

@@ -19,4 +19,6 @@ validarPlaca=function(){
     }else{
         mostrarTexto("lblVehiculo", "VEHICULO INCORRECTO");
     }
+    let diaPicoYPlaca=obtenerDiaPicoYPlaca(placa);
+    mostrarTexto("lblPicoYPlaca", diaPicoYPlaca);
 }
