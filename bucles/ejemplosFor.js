@@ -40,7 +40,7 @@
 
  mostrarImpares=function(){
     console.log("antes del for");
-    for(let y=1;y<=11;y+=2){
+    for(let y=1;y<=21;y+=2){
         console.log(y);
     }
     console.log("despues del for");
