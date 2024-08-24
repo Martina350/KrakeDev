@@ -4,9 +4,9 @@ ejecutarValidacion=function(){
     password=recuperarTexto("txtPassword")
     resultadoValidacion=validarPassword(password);
     if(resultadoValidacion==""){
-        mostrarTexto("lblResultado", "PASSWORD CORRECTO");
+        mostrarTexto("lblResultado", "PASSWORD INCORRECTO");
     } else {
-        mostrarTexto("lblResultado", resultadoValidacion);
+        mostrarTexto("lblResultado", resultadoValidacion="PASSWORD CORRECTO");
     }
 }
 
@@ -51,7 +51,7 @@ validarPassword=function(password){
     }
 
     if(!tieneCaracterEspecial){
-        mostrarTexto("lblErrorEspecial","LA CONTRASEÑA DEBE TENER AL MENOS UN CARÁCTER ESPECIAL (*, -, _)");
+        mostrarTexto("lblErrorEspecial","LA CONTRASEÑA DEBE TENER AL MENOS UN CARÁCTER ESPECIAL *, -, _");
         existeError = true;
     }else{
         mostrarTexto("lblErrorEspecial"," ");
