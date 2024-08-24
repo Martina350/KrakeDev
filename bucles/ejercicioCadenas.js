@@ -37,3 +37,33 @@ invertirCadena=function(cadena){
     }
     return resultado;
 }
+
+buscarLetra=function(cadena,letra){
+    let letraIterada;
+    let existeLetra=false;
+    for(let i=0;cadena.length;i++){
+        letraIterada=cadena.charAt(i);
+        if(letraIterada=letra){
+            existeLetra=true;         
+        }
+    }
+    if(existeLetra==true){
+        console.log("existe");
+        return true;
+    }else{
+        console.log("no existe");
+        return false;
+    }
+}
+
+contarMayusculas=function(cadena){
+    let letra;
+    let contadorMayusculas=0;
+    for(let i=0;i<cadena.length;i++){
+        letra=cadena.charAt(i);
+        if(esMayuscula(letra)){
+           contadorMayusculas++; 
+        }
+    }
+    console.log(contadorMayusculas);
+}
