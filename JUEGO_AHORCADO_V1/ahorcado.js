@@ -1,3 +1,8 @@
+let palabraSecreta;
+let intentos=0;
+let coincidencias=0;
+let errores=0;
+
 esMayuscula=function(caracter){
     let codigoAscii=caracter.charCodeAt(0);
     if(codigoAscii>=65 && codigoAscii<=90){
@@ -7,7 +12,6 @@ esMayuscula=function(caracter){
     }
 }
 
-let palabraSecreta;
 guardarPalabra=function(){
     let letraCadena;
     let encontrarLetraMayuscula=0;
@@ -23,10 +27,9 @@ guardarPalabra=function(){
     if(encontrarLetraMayuscula!=5){
         alert("INGRESA UNA PALABRA DE EXACTAMETE 5 LETRAS MAYUSCULAS");
     }else{
-        console.log(palabra);
+        palabraSecreta=palabra;
+        console.log("PALABRA SECRETA GUARDADA: ", palabraSecreta);
     }
-    palabraSecreta=palabra;
-    console.log("PALABRA SECRETA GUARDADA: ", palabraSecreta);
 }
 
 mostrarLetra=function(letra,posicion){
@@ -46,14 +49,19 @@ mostrarLetra=function(letra,posicion){
 }
 
 validar=function(letra){
-    let letrasEncontradas;
-    let letraActual;
-    for (let i=0;i<palabraSecreta.length;i++){
-        letraActual=palabraSecreta.charAt(i);
-        if(letraActual==letra){
-            mostrarLetra(letra,i);
+    let letrasEncontradas=0;
+    for (let i=0;i<palabraSecreta.length;i++) {
+        if (palabraSecreta.charAt(i)==letra) {
+            mostrarLetra(letra, i);
             letrasEncontradas++;
+            coincidencias++;
+            console.log("COINCIDENCIAS ", coincidencias);
         }
+    }
+    if(letrasEncontradas==0){
+        alert("LA LETRA NO ES PARTE DE LA PALABRA")
+        errores++;
+        mostrarAhorcado();
     }
 }
 
@@ -68,6 +76,8 @@ ingresarLetra=function(){
         coincideLetra=palabra.charAt(i);
             if(esMayuscula(letraCadena)){
                 encontrarLetraMayuscula++;
+                intentos++;
+                console.log("INTENTOS: ",intentos)
             }
         }
     }
@@ -75,5 +85,36 @@ ingresarLetra=function(){
         alert("SOLO SE ACEPTAN MAYUSCULAS");
     }else{
         validar(coincideLetra);
+        mostrarTextoEnCaja("txtLetra", "")
+        if (coincidencias==5) {
+            mostrarImagen("ahorcadoImagen","ganador.gif");   
+        }
+        if (intentos==10) {
+            mostrarImagen("ahorcadoImagen","gameOver.gif");
+        }
     }  
 }
+
+mostrarAhorcado=function(){
+    if(errores==1){
+        mostrarImagen("ahorcadoImagen","Ahorcado_01.png");
+    }else if(errores==2){
+        mostrarImagen("ahorcadoImagen","Ahorcado_02.png");
+    }else if(errores==3){
+        mostrarImagen("ahorcadoImagen","Ahorcado_03.png");
+    }else if(errores==4){
+        mostrarImagen("ahorcadoImagen","Ahorcado_04.png");
+    }else if(errores==5){
+        mostrarImagen("ahorcadoImagen","Ahorcado_05.png");
+    }else if(errores==6){
+        mostrarImagen("ahorcadoImagen","Ahorcado_06.png");
+    }else if(errores==7){
+        mostrarImagen("ahorcadoImagen","Ahorcado_07.png");
+    }else if(errores==8){
+        mostrarImagen("ahorcadoImagen","Ahorcado_08.png");
+    }else if(errores==9){
+        mostrarImagen("ahorcadoImagen","Ahorcado_09.png");
+    }
+    
+    }
+    
