@@ -25,7 +25,7 @@ mostrarOpcionResumen=function(){
 
 mostrarEmpleados=function(){
     let cmpTabla=document.getElementById("tablaEmpleados");
-    let contenidoTabla=`<table id="tabla_empleados"><tr>
+    let contenidoTabla=`<table><tr>
     <th>CEDULA</th>
     <th>NOMBRE</th>
     <th>APELLIDO</th>
