@@ -46,19 +46,11 @@ mostrarEmpleados=function(){
     }
     contenidoTabla+="</table>"
     cmpTabla.innerHTML=contenidoTabla;
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
+    deshabilitarTodosLosComponentes();
 }
 
 ejecutarNuevo=function(){
-    habilitarComponente("txtCedula");
-    habilitarComponente("txtNombre");
-    habilitarComponente("txtApellido");
-    habilitarComponente("txtSueldo");
-    habilitarComponente("btnGuardar");
+    habilitarTodosLosComponentes();
     esNuevo=true;
 }
 
@@ -110,11 +102,7 @@ guardar=function(){
             }
         }
     }
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
+    deshabilitarTodosLosComponentes();
     mostrarTextoEnCaja("txtCedula","")
     mostrarTextoEnCaja("txtNombre","")
     mostrarTextoEnCaja("txtApellido","")
@@ -189,4 +177,20 @@ validarSueldo=function(sueldo){
         mostrarTexto("lblErrorSueldo","EL VALOR DEBE DE SER ENTRE $400 Y $5000");
     }
     return esValido;
+}
+
+habilitarTodosLosComponentes=function(){
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
+}
+
+deshabilitarTodosLosComponentes=function(){
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
 }
