@@ -223,10 +223,22 @@ ejecutarBusqueda=function(){
     deshabilitarComponente("txtCedula");
 }
 
+buscarPorRol=function(){
+    let valorCedula=recuperarTexto("txtBusquedaCedulaRol");
+    let empleado=buscarEmpleado(valorCedula);
+    if(empleado){
+        mostrarTexto("infoCedula", empleado.cedula);
+        mostrarTexto("infoNombre", empleado.nombre + " " + empleado.apellido);
+        mostrarTexto("infoSueldo", empleado.sueldo);      
+    }else{
+        alert("EMPLEADO NO EXISTE");
+    }
+}
+
 limpiar=function(){
     mostrarTextoEnCaja("txtCedula","")
     mostrarTextoEnCaja("txtNombre","")
-    mostrarTextoEnCaja("txtApellido","")
+    mostrarTextoEnCaja("tsxtApellido","")
     mostrarTextoEnCaja("txtSueldo","")
     esNuevo=false;
     deshabilitarTodosLosComponentes();
