@@ -1,6 +1,8 @@
 
 let esNuevo=false;
 
+let roles=[];
+
 let empleados = [
     {cedula:"1714616123",nombre:"JOHN",apellido:"CENA",sueldo:500.0},
     {cedula:"0914632123",nombre:"LUISA",apellido:"GONZALES",sueldo:900.0},
@@ -18,6 +20,7 @@ mostrarOpcionRol=function(){
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    deshabilitarComponente("botnGuardar");
 }
 
 mostrarOpcionResumen=function(){
@@ -261,6 +264,51 @@ calcularRol=function(){
 
     let valorAPagar=calcularValorPagar(sueldo,aporteEmpleado,descuentos);
     mostrarTexto("infoPago",valorAPagar.toFixed(2));
+
+    habilitarComponente("botnGuardar");
+}
+
+buscarRol=function(cedula){
+    for(let i=0;i<roles.length;i++){
+        if(roles[i].cedula==cedula){
+            return roles[i]; 
+        }
+    }
+    return null;
+}
+
+agregarRol=function(rol){
+    if(!buscarRol(rol.cedula)){
+        roles.push(rol);  
+        alert("AGREGADO EXITOSAMENTE");
+    }else{
+        alert("ERROR");
+    }
+}
+
+calcularAporteEmpleador=function(sueldo) {
+    let porcentajeEmpleador=0.1115; 
+    return sueldo*porcentajeEmpleador;
+}
+
+guardarRol=function(){
+    let cedula=recuperarTexto("txtCedula");
+    let nombre=recuperarTexto("txtNombre");
+    let sueldo=recuperarFloat("txtSueldo");
+    let aporteEmpleador=calcularAporteEmpleador(sueldo);
+    let rol={};
+
+    rol.cedula=cedula;
+    rol.nombre=nombre;
+    rol.sueldo=sueldo;
+    rol.aporteEmpleador=aporteEmpleador;
+    rol.aporteEmpleado=calcularAporteEmpleado(sueldo); 
+    rol.valorAPagar=sueldo-rol.aporteEmpleado; 
+
+    agregarRol(rol);
+
+    alert("ROL GUARDADO EXITOSAMENTE");
+    deshabilitarComponente("botnGuardar");
 }
 
 limpiar=function(){
