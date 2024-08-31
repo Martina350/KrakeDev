@@ -105,6 +105,7 @@ tbody tr:nth-child(odd) {
   }
   .areaTabla{
     margin-top: 60px;
+    margin-bottom: 60px;
   }
  
 .estiloBoton:hover {
