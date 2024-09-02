@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="utilitarios.js"></script>
+        <script src="orden.js"></script>
+        <link rel="stylesheet" href="orden.css"/>
+    </head>
+    <body>
+        <div class="principal">
+            <div class="contenido">
+                <div class="titulo">
+                    QUIEN ES LA PERSONA MAYOR?
+                </div>
+            <div class="ingresoInfo">
+                <input type="text" class="cajaTexto" id="txtNombre"/>
+            </div>
+            <div class="error" id="lblErrorNombre"></div>
+            <div class="ingresoInfo">
+                <input type="text" class="cajaTexto" id="txtEdad"/>
+            </div>
+            <div class="error" id="lblErrorEdad"></div>
+            <div class="botones">
+                <div class="contenedorBoton">
+                    <input class="estiloBoton" type="button" 
+                    value="GUARDAR" onclick="agregarPersonas();"/>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
