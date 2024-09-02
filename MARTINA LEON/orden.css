@@ -91,3 +91,48 @@ body{
     margin-left: 10px;
     margin-right: 10px;
 }
+
+tbody tr:nth-child(odd) {
+    background-color: #5b4caf;;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #d9d5ee;;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+  tbody tr {
+    background-color: #d9d5ee;
+  }
+  
+  table {
+    background-color: #0b0c0c;
+    width: 100%;
+  }
+  td{
+    text-align: center;
+  }
+  .areaTabla{
+    margin-top: 30px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .encontrar{
+    color:rgba(60, 255, 0, 0.753);
+    font-style: italic;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+ 

@@ -5,7 +5,7 @@
         <script src="orden.js"></script>
         <link rel="stylesheet" href="orden.css"/>
     </head>
-    <body>
+    <body onload="mostrarPersonas();">
         <div class="principal">
             <div class="contenido">
                 <div class="titulo">
@@ -24,6 +24,19 @@
                     <input class="estiloBoton" type="button" 
                     value="GUARDAR" onclick="agregarPersonas();"/>
                 </div>
+            </div>
+            <div class="botones">
+                <div class="contenedorBoton">
+                    <input class="estiloBoton" type="button" 
+                    value="ENCONTRAR MAYOR" onclick="determinarMayor();"/>
+                    <input class="estiloBoton" type="button" 
+                    value="ENCONTRAR MENOR" onclick="determinarMenor();"/>   
+                </div>
+            </div>
+            <div class="encontrar" id="lblMayor"></div>
+            <div class="encontrar" id="lblMenor"></div>
+            <div id="tablaPersonas" class="areaTabla">
+                 
             </div>
         </div>
     </body>
