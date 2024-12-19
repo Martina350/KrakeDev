@@ -1,0 +1,20 @@
+PARA PROYECTOS
+(npm instalations)
+NAVEGACION: stack
+	npm install @react-navigation/native
+	npm install @react-navigation/native-stack
+		npx expo install react-native-screens react-native-safe-area-context
+
+USAR REACT NATIVE: elements
+	npm install @rneui/themed @rneui/base
+	npm install react-native-vector-icons
+
+RETO 31
+npm install @react-navigation/drawer
+npm install react-native-reanimated
+npm install react-native-safe-area-context
+npm install react-native-gesture-handler
+
+import "react-native-gesture-handler"
+
+npm install --save-dev @babel/core @babel/preset-env

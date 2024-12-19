@@ -1,0 +1,9 @@
+git pull -f origin main --allow-unrelated-histories
+
+git init
+git add .
+git commit ""
+git remote add origin https://github.com/Adrian31BT/AplicativoKrakedev.git
+git remote -v
+git push
+git push --set-upstream origin main
