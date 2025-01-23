@@ -45,9 +45,9 @@ app.put("/laptops/:id", (req, res) => {
 });
 
 app.delete("/laptops/:id", (req, res) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     console.log("ID de laptop a eliminar:", id);
-    res.status(200).send();
+    res.send({id:id});
 });
 
 app.listen(puerto,()=>{
