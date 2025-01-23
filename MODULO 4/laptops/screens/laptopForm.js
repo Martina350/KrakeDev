@@ -1,18 +1,27 @@
 import { View,Text,StyleSheet,Alert } from "react-native"
 import {Input,Button} from "@rneui/base"
 import { useState } from "react"
-import {saveLaptopRest} from "../rest_laptop/laptops"
+import {saveLaptopRest, uptdateLaptopRest} from "../rest_laptop/laptops"
 
-export const LaptopsForm=()=>{
-    const [brand, setBrand]=useState("");
-    const [memory, setMemory]=useState("");
-    const [disc, setDisc]=useState("");
+export const LaptopsForm=({ navigation, route})=>{
+    let laptopRetrieved = route.params.laptopParam
+    let isNew = true;
+    if (laptopRetrieved != null) {
+        isNew = false;
+    }
+    console.log("isNew", isNew);
+    console.log("laptopRetrieved", laptopRetrieved);
+
+    const [brand, setBrand]=useState(isNew ? null : laptopRetrieved.marca);
+    const [memory, setMemory]=useState(isNew ? null : laptopRetrieved.memoria);
+    const [disc, setDisc]=useState(isNew ? null : laptopRetrieved.disco);
 
     const showMessage=()=>{
-        Alert.alert("CONFIRMACION","Laptop agregada exitosamente")
+        Alert.alert("CONFIRMACION",isNew ? "Laptop agregada exitosamente": "Laptop actualizada")
+        navigation.goBack();
     }
 
-    const saveLaptop=()=>{
+    const createLaptop=()=>{
         console.log("SAVE CONTACT");
         saveLaptopRest(
             {
@@ -23,6 +32,17 @@ export const LaptopsForm=()=>{
             showMessage
         );
     }
+
+    const updateLaptop = () => {
+            console.log("ACTUALIZANDO LAPTOP")
+            uptdateLaptopRest({
+                id: laptopRetrieved.id,
+                brand: brand, 
+                memory: memory,
+                disc: disc
+            },
+                showMessage);
+        }
 
     return <View style={styles.container}>
         <Input
@@ -48,7 +68,7 @@ export const LaptopsForm=()=>{
         />
         <Button
             title="GUARDAR"
-            onPress={saveLaptop}
+            onPress={isNew?createLaptop:updateLaptop}
         />
     </View>
 }

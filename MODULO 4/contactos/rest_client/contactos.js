@@ -1,37 +1,60 @@
-const IP="192.168.100.14";
-const PORT=3001;
-const URL="http://"+IP+":"+PORT+"/"
+const IP = "192.168.100.14";
+const PORT = 3001;
+const URL = "http://" + IP + ":" + PORT + "/"
 
-export const getAllContacts=(fnRefreshList)=>{
+export const getAllContacts = (fnRefreshList) => {
     fetch(
-    URL+"contactos"
+        URL + "contactos"
     ).then(
-        (response)=>{return response.json()}
+        (response) => { return response.json() }
     ).then(
-        (body)=>{
+        (body) => {
             fnRefreshList(body);
         }
     )
 }
 
-export const saveContactRest=(contact,fnShowMessage)=>{
-    const config={
+export const saveContactRest = (contact, fnShowMessage) => {
+    const config = {
         method: "POST",
-        headers:{
-            "Content-Type":"application/json"
+        headers: {
+            "Content-Type": "application/json"
         },
-        body:JSON.stringify({
+        body: JSON.stringify({
             nombre: contact.name,
             apellido: contact.surname,
-            celular: contact.phoneNumber  
+            celular: contact.phoneNumber
         })
     }
     fetch(
-        URL+"contactos",config
-        ).then(
-            response=>response.json()
-        ).then(body=>{
-            fnShowMessage();
-            console.log(body);
-        }) 
+        URL + "contactos", config
+    ).then(
+        response => response.json()
+    ).then(body => {
+        fnShowMessage();
+        console.log(body);
+    })
+}
+
+export const updateContactRest = (contact, fnShowMessage) => {
+    const config = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id: contact.id,
+            nombre: contact.name,
+            apellido: contact.surname,
+            celular: contact.phoneNumber
+        })
+    }
+    fetch(
+        URL + "contactos/"+contact.id, config
+    ).then(
+        response => response.json()
+    ).then(body => {
+        fnShowMessage();
+        console.log(body);
+    })
 }
