@@ -30,9 +30,19 @@ class auto:
         else:
             print("¡Ya déjame descansar por favor!")
 
-miAuto = auto("CHEVROLET", "EQUINOX", 2026)
-miAuto.mostrarInfo()
-miAuto.realizarViaje(150000)
-miAuto.actualizarKm(25)
-miAuto.estadoAuto()
-print(miAuto.__dict__)
+    @classmethod
+    def toyota_actual(cls, modelo):
+        anio_actual = 2025  # año actual escrito directamente
+        return cls("TOYOTA", modelo, anio_actual, kilometraje=0)
+
+    @staticmethod
+    def comparar_kilometraje(auto1, auto2):
+        return auto1.kilometraje == auto2.kilometraje
+
+    @classmethod
+    def nuevo_auto(cls, marca, modelo, anio, kilometraje):
+        return cls(marca, modelo, anio, kilometraje)
+
+    @staticmethod
+    def estado_auto(auto):
+        return auto.kilometraje > 200000
