@@ -11,7 +11,7 @@ class Laptop_Business(Laptop):
         diagnostico = super().realizarDiagnosticoSistema()
         diagnostico.update({
             "ALMACENAMIENTO": "OK" if self.almacenamiento >= 256 else "ESPACIO INSUFICIENTE",
-            "DURACIÓN BATERÍA": "OK" if self.duracion_bateria >= 6 else "REEMPLAZAR BATERÍA PRONTO"
+            "DURACIÓN BATERÍA": "OK" if self.duracion_bateria >= 6 else "REEMPLAZAR BATERIA PRONTO"
         })
         return diagnostico
 

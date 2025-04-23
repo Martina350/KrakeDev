@@ -22,6 +22,15 @@ class Laptop:
             "BATERIA":"OK" if random.choice([True, False]) else "CAMBIAR BATERIA"
         }
         return resultado
+    
+    def realizarInformeUso(self):
+        resultadoInforme={
+            "Tipo":"GENERICA",
+            "Uso Recomendado":"TAREAS COTIDIANAS",
+            "Horas de uso": 5,
+            "Diagnostico actual": self.realizarDiagnosticoSistema()
+        }
+        return resultadoInforme
 
     @staticmethod
     def comparar_costo(laptop1, laptop2):
