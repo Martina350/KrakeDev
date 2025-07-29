@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <h2>DETALLES DEL CURSO</h2>
+    <div>
+      <ul>
+        <li><strong>ID del Curso:</strong> {{ learning.id }}</li>
+        <li><strong>Nombre del Curso:</strong> {{ learning.name }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>ESTUDIANTES</h3>
+      <table border="1" cellspacing="0" cellpadding="5">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Identificación</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (student of learning.students; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ student.identification }}</td>
+              <td>{{ student.name }}</td>
+              <td>{{ student.surname }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
