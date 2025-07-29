@@ -1,35 +1,36 @@
-<div>
-  <div>
-    <h2>DETALLES DEL CURSO</h2>
-    <div>
-      <ul>
-        <li><strong>ID del Curso:</strong> {{ learning.id }}</li>
-        <li><strong>Nombre del Curso:</strong> {{ learning.name }}</li>
-      </ul>
-    </div>
+<div class="container my-4">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">DETALLES DEL CURSO</h2>
 
-    <div>
-      <h3>ESTUDIANTES</h3>
-      <table border="1" cellspacing="0" cellpadding="5">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Identificación</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (student of learning.students; track $index) {
+      <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>ID del Curso:</strong> {{ learning.id }}</li>
+        <li class="list-group-item"><strong>Nombre del Curso:</strong> {{ learning.name }}</li>
+      </ul>
+
+      <h3 class="mb-3">ESTUDIANTES</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead class="table-dark">
             <tr>
-              <td>{{ $index + 1 }}</td>
-              <td>{{ student.identification }}</td>
-              <td>{{ student.name }}</td>
-              <td>{{ student.surname }}</td>
+              <th>#</th>
+              <th>Identificación</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
             </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            @for (student of learning.students; track $index) {
+              <tr>
+                <td>{{ $index + 1 }}</td>
+                <td>{{ student.identification }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.surname }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
