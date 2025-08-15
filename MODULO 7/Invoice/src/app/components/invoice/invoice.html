@@ -1,0 +1,40 @@
+<div class="container my-5 factura">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h2 class="mb-0 fw-bold">FACTURA</h2>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-4">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item fs-5">
+                        <strong>Número:</strong> {{invoice.id}}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row g-4">
+                <!-- Empresa -->
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <app-company-view [company]="invoice.company"></app-company-view>
+                    </div>
+                </div>
+
+                <!-- Cliente -->
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <app-customer-view [customer]="invoice.customer"></app-customer-view>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body pt-0">
+            <h5 class="fw-bold mt-4">Detalles de la compra:</h5>
+            <div class="card border-0 shadow-sm rounded-3 mt-2">
+                <app-invoice-details [items]="invoice.items"></app-invoice-details>
+            </div>
+        </div>
+    </div>
+</div>
